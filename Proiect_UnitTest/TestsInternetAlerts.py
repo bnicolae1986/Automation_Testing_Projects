@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.ui import Select
 
-
+#comentariu
 class TestsAlertsTheInternet(unittest.TestCase):
 
     URL = "https://the-internet.herokuapp.com/javascript_alerts"
