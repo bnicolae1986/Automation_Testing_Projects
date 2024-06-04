@@ -2,24 +2,22 @@ import unittest
 from request_apis.books_api import BookApi
 
 
-# testele trebuie separate pe clase
-
 class BooksTests(unittest.TestCase):
 
     accessToken = ""
 
-    # in cazul testelor de backend, avem nevoie doar de metoda de setup nu si de teardown
+    # for the backend tests, we only need the setup method, we dont need the teardown method
     def setUp(self):
-        self.books = BookApi() # books este un obiect din clasa BookApi
+        self.books = BookApi() # books is an object from the BookApi class
         if self.accessToken == '':
-            self.accessToken = self.books.post_api_clients().json()['accessToken'] #luam valoarea de pe aceasta cheie
+            self.accessToken = self.books.post_api_clients().json()['accessToken'] # we get the value from this key
 
-    # testele incep cu "test"
+    # all the test must begin with "test"
     # this test will check the status code and body for /status endpoint
     def test_books_status(self):
         response = self.books.get_api_status_response()
-        self.assertEqual(response.status_code, 200, "Status code is not the same:") # ce verificam, expected status code, mesajul cu care vom vedea daca acest assert pica
-        self.assertEqual(response.json()['status'], "OK", "GET /status responce value for key 'status' is not the same: ") # cheie, valoare, mesaj
+        self.assertEqual(response.status_code, 200, "Status code is not the same:")
+        self.assertEqual(response.json()['status'], "OK", "GET /status responce value for key 'status' is not the same: ") # key, value, message
 
     def tests_all_books(self):
         response = self.books.get_api_books_response()
@@ -27,13 +25,13 @@ class BooksTests(unittest.TestCase):
         expected_number = 6
         self.assertEqual(len(response.json()), expected_number, "GET /books length is not the same: ")
         self.assertEqual(response.json()[0]['id'], 1, "Id for the first book si not the same: ")
-        # to do , use for book in response.json() and check every fields received
+        # todo , use for book in response.json() and check every fields received
 
     def test_book_by_id(self):
         response = self.books.get_api_books_book_by_id(1)
         self.assertEqual(response.status_code, 200, "Status code is not the same: ")
         self.assertEqual(response.json()['name'], "The Russian", "GET /books/{id} response value for key 'name' is not the same:")
-        # eventual de verificat si alte field-uri
+        # todo, verify other fields
 
     def test_book_by_id_negative(self):
         non_existing_id = 100
@@ -41,17 +39,15 @@ class BooksTests(unittest.TestCase):
         self.assertEqual(response.status_code, 404, "Status code is not the same")
         self.assertEqual(response.json()['error'], f"No book with id {non_existing_id}", "GET /books/{id} error message is not the same")
 
-    # test fara token
+    # no token test
     def test_book_orders_no_token(self):
         response = self.books.get_api_orders_response('213')
         self.assertEqual(response.status_code, 401, "Status code is not the same: ")
 
-    # test pozitiv cu token
+    # positive test with token
     def test_all_orders(self):
         response = self.books.get_api_orders_response(self.accessToken)
         self.assertEqual(response.status_code, 200, "Status code is not the same: ")
-
-    # de verificat ca la books all
 
     def test_post_orders(self):
         book_id = 1
@@ -59,16 +55,16 @@ class BooksTests(unittest.TestCase):
         response = self.books.post_books_order(self.accessToken, book_id, customer_name)
         self.assertEqual(response.status_code, 201, "Status code is not the same: ")
 
-    # de verificat daca field-ul de created este true
+    # todo verify if the "created" field is true
 
-    # flow, am facut comanda, am verificat statusul, apoi am facut un get pe api si am verificat ca primi o lista cu o singura comanda
+    # flow, placed order, checked status, GET req, i verified that the list contains only one order
     def test_post_orders_flow(self):
         book_id = 1
         customer_name = "Bogdan"
         response = self.books.post_books_order(self.accessToken, book_id, customer_name)
         self.assertEqual(response.status_code, 201, "Status code is not the same: ")
 
-        # now we check that we have 1 order
+        # now i check that we have 1 order
         response = self.books.get_api_orders_response(self.accessToken)
         self.assertEqual(response.status_code, 200, "Status code is not the same: ")
 
@@ -91,9 +87,8 @@ class BooksTests(unittest.TestCase):
         # self.assertEqual(response.status_code, 200, "Status code for GET /orders/{id} is not the same: ")
         # self.assertEqual(response.json()['customerName'], new_customer_name, "Customer name is not updated")
 
-    # un test pt get pe order by id "get_order_by_id_route" , ne putem juca, cu id care exista, care nu ex,
-    # flow intreg, creati o comanda, o modificam, facem get, facem delete, apoi verficam ca pe orders da 200 dar lungimea este 0
-
+    # todo a test for get pe order by id "get_order_by_id_route" , id that exists, id that doesnt exist
+    # todo complete flow, create an oder, modify it, req GET then DELETE, then verify that on orders that the status code is 200
 
     def test_books_by_filters_only_limit(self):
         limit = 20
@@ -140,7 +135,7 @@ class BooksTests(unittest.TestCase):
             book = books_from_api[i]
             self.assertEqual(book["type"], 'fiction', "Type of the book is not the same")
 
-    # test pozitiv limit 20 and type fiction sau non-fiction
+    # test pozitiv limit 20 and type fiction or non-fiction
     def test_books_by_filters(self):
         limit = 20
         book_type = "fiction"

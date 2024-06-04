@@ -3,25 +3,23 @@ import random
 class BookApi():
 
     # constante
-    # daca vreau ca aceste constante sa fie protected, adaug la inceput _ iar pentru private __
+    # for protected add _ for private add __ in front of each constant
     BASE_URL = "https://simple-books-api.glitch.me"
     STATUS_ENDPOINT = "/status"
     BOOKS_ENDPOINT = "/books"
     ORDERS_ENDPOINT = "/orders"
     API_CLIENTS_ENDPOINT = "/api-clients"
 
-    # cu aceasta metoda obtinem ruta pentru primul endpoint, cel pt /status
+    # with this method we obtain the route for the first endpoint, /status
     def get_status_route(self):
         return self.BASE_URL + self.STATUS_ENDPOINT
 
-    # cu aceasta metoda obtinem ruta pentru al doilea endpoint, cel pt /books
     def get_books_route(self):
         return self.BASE_URL + self.BOOKS_ENDPOINT
 
     def get_book_by_id_route(self, book_id):
         return self.get_books_route() + f'/{book_id}'
 
-    # cu aceasta metoda obtinem ruta pentru al treilea endpoint, cel pt /orders
     def get_orders_route(self):
         return self.BASE_URL + self.ORDERS_ENDPOINT
 
@@ -30,13 +28,12 @@ class BookApi():
     def get_api_clients_route(self):
         return self.BASE_URL + self.API_CLIENTS_ENDPOINT
 
-    # cu aceasta metoda ne folosim de libraria requests, pentru a face requestul de GET pt /status
+    # with this method we use the requests library to send the GET request
     def get_api_status_response(self):
         URL = self.get_status_route()
         return requests.get(url=URL)
 
-    # cu aceasta metoda ne folosim de libraria requests, pentru a face requestul de GET pt /books
-    # avem nevoie de url si de requestul de GET
+    # we need the url and the GET req
     def get_api_books_response(self):
         URL = self.get_books_route()
         return requests.get(url=URL)

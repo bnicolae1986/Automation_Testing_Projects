@@ -9,9 +9,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.ui import Select
 
-#test
+
 class TestsAlertsTheInternet(unittest.TestCase):
 
+    # constante
     URL = "https://the-internet.herokuapp.com/javascript_alerts"
     ALERT_SELECTOR = (By.XPATH, "//button[contains(text(), 'Click for JS Alert')]")
     ALERT_CONFIRM_SELECTOR = (By.XPATH, "//button[contains(text(), 'Click for JS Confirm')]")

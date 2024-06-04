@@ -9,7 +9,6 @@ class BasePage(Driver):
         self.driver.find_element(*locator).click()
 
     def type(self, locator, text):
-        #salvam self.driver.find_element(*locator) intr-o variabila si ii dam clear si send keys
         self.driver.find_element(*locator).clear()
         self.driver.find_element(*locator).send_keys(text)
 
