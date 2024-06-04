@@ -10,6 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class TestsCheckboxTheInternet(unittest.TestCase):
 
+
     URL = "https://the-internet.herokuapp.com/checkboxes"
     FIRST_CHECKBOX_SELECTOR = (By.CSS_SELECTOR, "form#checkboxes > input:nth-child(1)")
     SECOND_CHECKBOX_SELECTOR = (By.CSS_SELECTOR, "form#checkboxes > input:nth-of-type(2)")
@@ -23,6 +24,7 @@ class TestsCheckboxTheInternet(unittest.TestCase):
         self.driver.get(self.URL)
 
     def tearDown(self):
+        # close the driver
         self.driver.quit()
 
     def test_check_box(self):

@@ -12,10 +12,12 @@ from selenium.webdriver.support.ui import Select
 
 class TestsLoginTheInternet(unittest.TestCase):
 
+
     URL = "https://the-internet.herokuapp.com/login"
     USERNAME_ELEMENT_SELECTOR = (By.CSS_SELECTOR, "#username")
     PASSWORD_ELEMENT_SELECTOR = (By.CSS_SELECTOR, "#password")
     LOGIN_BUTTON_ELEMENT_SELECTOR = (By.CLASS_NAME, "fa-sign-in")
+    # todo change selector to xpath, do it by hand not copy paste
     FLASH_CONTAINER_SELECTOR = (By.ID, "flash")
     LOGOUT_BUTTON_ELEMENT_SELECTOR = (By.CLASS_NAME, "icon-signout")
     LOGOUT_CONTAINER_SELECTOR = (By.ID, "flash")
@@ -31,8 +33,8 @@ class TestsLoginTheInternet(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
-# comanda terminal python -m unittest TestsInternetLogin.py
-# comanda terminal python -m unittest *.py pentru a rula toate fisierele .py
+# terminal python -m unittest TestsInternetLogin.py
+# terminal python -m unittest *.py pentru a rula toate fisierele .py
 
     def test_negative_login(self):
         username_element = self.driver.find_element(*self.USERNAME_ELEMENT_SELECTOR)
@@ -96,8 +98,6 @@ class TestsLoginTheInternet(unittest.TestCase):
         flash_container = self.driver.find_element(*self.LOGOUT_CONTAINER_SELECTOR)
         flash_container_text = flash_container.text
         assert "You logged out of the secure area!" in flash_container_text
-
-#tema cu carturesti de facut cu unittest?? 02-27 ne explica putin
 
     def test_negative_login_wrong_username(self):
         username_element = self.driver.find_element(*self.USERNAME_ELEMENT_SELECTOR)

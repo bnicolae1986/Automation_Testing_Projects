@@ -26,5 +26,5 @@ class TestSuite(unittest.TestCase):
 
         runner.run(teste_de_rulat)
 
-# comanda terminal pip install html-testRunner
-# comanda terminal python -m unittest TestSuite.py
+# terminal command - pip install html-testRunner
+# terminal command - python -m unittest TestSuite.py
