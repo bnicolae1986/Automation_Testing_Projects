@@ -82,11 +82,6 @@ class BooksTests(unittest.TestCase):
         response = self.books.patch_books_orders(self.accessToken, order_id, new_customer_name)
         self.assertEqual(response.status_code, 204, "PATCH /orders/{id} Status code is not the same: ")
 
-    # make another get orders req test and check if the new value is set for customer name
-        # response = self.books.get_api_books_book_by_id(order_id)
-        # self.assertEqual(response.status_code, 200, "Status code for GET /orders/{id} is not the same: ")
-        # self.assertEqual(response.json()['customerName'], new_customer_name, "Customer name is not updated")
-
     # todo a test for get pe order by id "get_order_by_id_route" , id that exists, id that doesnt exist
     # todo complete flow, create an oder, modify it, req GET then DELETE, then verify that on orders that the status code is 200
 
@@ -145,7 +140,6 @@ class BooksTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200, "Status code is not the same")
 
         # Check if the response contains the expected number of books
-        # self.assertLessEqual(len(response.json()), limit, f"The number of books returned should be at most {limit}")
         self.assertTrue(len(response.json()) <= limit, f"The number of books returned should be at most {limit}")
 
         # Check if all books in the response are of type 'fiction'

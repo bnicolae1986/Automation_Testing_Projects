@@ -40,6 +40,7 @@ class TestsLoginTheInternet(unittest.TestCase):
         username_element = self.driver.find_element(*self.USERNAME_ELEMENT_SELECTOR)
         password_element = self.driver.find_element(*self.PASSWORD_ELEMENT_SELECTOR)
         login_button_element = self.driver.find_element(*self.LOGIN_BUTTON_ELEMENT_SELECTOR)
+
         username_element.click()
         username_element.clear()
         username_element.send_keys("bogdan@gmail.com")
@@ -61,6 +62,7 @@ class TestsLoginTheInternet(unittest.TestCase):
         username_element = self.driver.find_element(*self.USERNAME_ELEMENT_SELECTOR)
         password_element = self.driver.find_element(*self.PASSWORD_ELEMENT_SELECTOR)
         login_button_element = self.driver.find_element(*self.LOGIN_BUTTON_ELEMENT_SELECTOR)
+
         username_element.click()
         username_element.clear()
         username_element.send_keys("tomsmith")
@@ -81,6 +83,7 @@ class TestsLoginTheInternet(unittest.TestCase):
         username_element = self.driver.find_element(*self.USERNAME_ELEMENT_SELECTOR)
         password_element = self.driver.find_element(*self.PASSWORD_ELEMENT_SELECTOR)
         login_button_element = self.driver.find_element(*self.LOGIN_BUTTON_ELEMENT_SELECTOR)
+
         username_element.click()
         username_element.clear()
         username_element.send_keys("tomsmith")
@@ -103,6 +106,7 @@ class TestsLoginTheInternet(unittest.TestCase):
         username_element = self.driver.find_element(*self.USERNAME_ELEMENT_SELECTOR)
         password_element = self.driver.find_element(*self.PASSWORD_ELEMENT_SELECTOR)
         login_element = self.driver.find_element(*self.LOGIN_BUTTON_ELEMENT_SELECTOR)
+
         username_element.click()
         username_element.clear()
         username_element.send_keys("bogdan@yahoo.com")
@@ -123,6 +127,7 @@ class TestsLoginTheInternet(unittest.TestCase):
         username_element = self.driver.find_element(*self.USERNAME_ELEMENT_SELECTOR)
         password_element = self.driver.find_element(*self.PASSWORD_ELEMENT_SELECTOR)
         login_element = self.driver.find_element(*self.LOGIN_BUTTON_ELEMENT_SELECTOR)
+
         username_element.click()
         username_element.clear()
         username_element.send_keys("tomsmith")
