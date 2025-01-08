@@ -58,10 +58,6 @@ class BookApi():
                 "limit": limit,
                 "type": book_type
             }
-        # query_params = {
-        #     "limit": limit,
-        #     "type": book_type
-        # }
         return requests.get(url=URL, params=query_params)
 
     def get_api_orders_response(self,access_token):

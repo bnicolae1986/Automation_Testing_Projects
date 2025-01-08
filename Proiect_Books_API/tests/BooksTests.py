@@ -25,7 +25,7 @@ class BooksTests(unittest.TestCase):
         expected_number = 6
         self.assertEqual(len(response.json()), expected_number, "GET /books length is not the same: ")
         self.assertEqual(response.json()[0]['id'], 1, "Id for the first book si not the same: ")
-        # todo , use for book in response.json() and check every fields received
+        # todo , use for book in response.json() and check every fields received!
 
     def test_book_by_id(self):
         response = self.books.get_api_books_book_by_id(1)
@@ -55,7 +55,7 @@ class BooksTests(unittest.TestCase):
         response = self.books.post_books_order(self.accessToken, book_id, customer_name)
         self.assertEqual(response.status_code, 201, "Status code is not the same: ")
 
-    # todo verify if the "created" field is true
+    # todo verify if the "created" field is true!
 
     # flow, placed order, checked status, GET req, i verified that the list contains only one order
     def test_post_orders_flow(self):
@@ -82,8 +82,8 @@ class BooksTests(unittest.TestCase):
         response = self.books.patch_books_orders(self.accessToken, order_id, new_customer_name)
         self.assertEqual(response.status_code, 204, "PATCH /orders/{id} Status code is not the same: ")
 
-    # todo a test for get pe order by id "get_order_by_id_route" , id that exists, id that doesnt exist
-    # todo complete flow, create an oder, modify it, req GET then DELETE, then verify that on orders that the status code is 200
+    # todo a test for get pe order by id "get_order_by_id_route" , id that exists, id that doesnt exist!
+    # todo complete flow, create an oder, modify it, req GET then DELETE, then verify that on orders that the status code is 200!
 
     def test_books_by_filters_only_limit(self):
         limit = 20
