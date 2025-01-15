@@ -3,7 +3,7 @@ import random
 class BookApi():
 
     # constante
-    # for protected add _ for private add __ in front of each constant!
+    # for protected add _ for private add __ in front of each constant
     BASE_URL = "https://simple-books-api.glitch.me"
     STATUS_ENDPOINT = "/status"
     BOOKS_ENDPOINT = "/books"
