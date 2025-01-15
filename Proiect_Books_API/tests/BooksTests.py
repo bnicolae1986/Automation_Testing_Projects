@@ -157,7 +157,7 @@ class BooksTests(unittest.TestCase):
         self.assertEqual(response.status_code, 201, "Status code is not the same: ")
         order_id = response.json()['orderId']
 
-        # Delete the created order!
+        # Delete the created order
         response = self.books.delete_order_by_id(self.accessToken, order_id)
         self.assertEqual(response.status_code, 204, "Status code is not the same: ")
 
