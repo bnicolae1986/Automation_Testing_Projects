@@ -105,4 +105,3 @@ class BookApi():
         }
         return requests.delete(url=URL, headers=headers)
 
-    # Check that the deleted order is no longer in the orders list
