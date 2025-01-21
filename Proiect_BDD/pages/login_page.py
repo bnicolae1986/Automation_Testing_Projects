@@ -43,6 +43,6 @@ class LoginPage(BasePage):
     def get_invalid_password_flash_container_message(self):
         return self.get_element_text(self.INVALID_PASSWORD_CONTAINER_LOCATOR)
 
-    #
+    
 
 
