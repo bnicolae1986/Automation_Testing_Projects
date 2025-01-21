@@ -29,7 +29,6 @@ class LoginPage(BasePage):
         self.type(self.PASSWORD_ELEMENT_LOCATOR, given_password)
 
     def click_login(self):
-        #self.driver.find_element(*self.LOGIN_BUTTON_LOCATOR).click()
         self.click(self.LOGIN_BUTTON_LOCATOR)
 
     def click_logout(self):
@@ -43,3 +42,7 @@ class LoginPage(BasePage):
 
     def get_invalid_password_flash_container_message(self):
         return self.get_element_text(self.INVALID_PASSWORD_CONTAINER_LOCATOR)
+
+    #
+
+
