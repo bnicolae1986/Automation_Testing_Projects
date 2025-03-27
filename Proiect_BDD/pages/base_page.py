@@ -29,7 +29,8 @@ class BasePage(Driver):
     # pt raport behave -f html -o raport.html
     # pt raport behave -f html -o raport.html --tags=login
 
-   # behave pt a rula testele in terminal
+
+    # behave pt a rula testele in terminal
     # behave --tags=positive
     # behave-html-formatter de instalat
     # behave.ini cu cele 2 linii de cod
